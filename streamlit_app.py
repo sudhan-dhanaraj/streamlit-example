@@ -3,6 +3,21 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import snowflake.snowpark
+from snowflake.snowpark import Session
+
+connection_parameters={
+  "account":"ti05946.eu-west-1.aws",
+  "user":"Sudhan",
+  "password":"Sudhan@9596",
+  "role":"SYSADMIN",
+  "database":"TEST",
+  "schema":"SCH1"
+}
+
+session=Session.builder.configs(connection_parameters).create()
+df=session.table('NAME')
+streamlit.dataframe(df)
 
 """
 # Welcome to Streamlit!
@@ -16,7 +31,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
-with st.echo(code_location='below'):
+"""with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
 
@@ -35,4 +50,4 @@ with st.echo(code_location='below'):
 
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
         .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
+        .encode(x='x:Q', y='y:Q'))"""
