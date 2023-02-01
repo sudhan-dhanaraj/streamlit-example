@@ -9,9 +9,9 @@ from snowflake.snowpark import Session
 
 connection_parameters={
   "account":"ti05946.eu-west-1",
-  "user":"Sudhan",
-  "password":"Sudhan@9596",
-  "role":"ACCOUNTADMIN",
+  "user":"TEST",
+  "password":"Test@12345",
+  "role":"DEMO_ADMIN",
   "database":"TEST",
   "schema":"SCH1"
 }
