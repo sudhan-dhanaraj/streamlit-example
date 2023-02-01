@@ -16,7 +16,7 @@ connection_parameters={
 }
 
 session=Session.builder.configs(connection_parameters).create()
-df=session.table('NAME')
+df=session.table('TEST.SCH1.NAME')
 st.dataframe(df)
 
 """
