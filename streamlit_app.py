@@ -17,7 +17,7 @@ connection_parameters={
 
 session=Session.builder.configs(connection_parameters).create()
 df=session.table('NAME')
-streamlit.dataframe(df)
+st.dataframe(df)
 
 """
 # Welcome to Streamlit!
