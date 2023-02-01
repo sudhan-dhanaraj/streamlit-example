@@ -2,3 +2,5 @@ altair
 pandas
 streamlit
 snowflake-snowpark-python
+xlrd
+configparser
