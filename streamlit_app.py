@@ -10,13 +10,13 @@ connection_parameters={
   "account":"ti05946.eu-west-1",
   "user":"Sudhan",
   "password":"Sudhan@9596",
-  "role":"SYSADMIN",
+  "role":"ACCOUNTADMIN",
   "database":"TEST",
   "schema":"SCH1"
 }
 
 session=Session.builder.configs(connection_parameters).create()
-df=session.table('TEST.SCH1.NAME')
+df=session.table('NAME')
 st.dataframe(df)
 
 """
