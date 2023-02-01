@@ -22,7 +22,7 @@ st.dataframe(df)
 
 input_file=st.file_uploader("Upload the Mapping document")
 if input_file is not None:
-  data=input_file.read()
+  data=input_file.getvalue()
   workbook=xlrd.open_workbook(data)
   sheet=workbook.sheet_by_index(0)
   col_a=sheet.col_values(0,1)
