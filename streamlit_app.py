@@ -21,16 +21,17 @@ df=session.table('NAME')
 st.dataframe(df)
 
 input_file=st.file_uploader("Upload the Mapping document")
-workbook=xlrd.open_workbook(input_file)
-sheet=workbook.sheet_by_index(0)
-col_a=sheet.col_values(0,1)
-col_b=sheet.col_values(1,1)
-col_c=sheet.col_values(2.1)
-join_cols=[]
-for a,b,c in zip(col_a,col_b,col_c):
-  if c=='ID':
-    join_cols.append(a)
-print(join_cols)
+if input_file is not None:
+  workbook=xlrd.open_workbook(input_file)
+  sheet=workbook.sheet_by_index(0)
+  col_a=sheet.col_values(0,1)
+  col_b=sheet.col_values(1,1)
+  col_c=sheet.col_values(2.1)
+  join_cols=[]
+  for a,b,c in zip(col_a,col_b,col_c):
+    if c=='ID':
+      join_cols.append(a)
+  print(join_cols)
     
 
 """
