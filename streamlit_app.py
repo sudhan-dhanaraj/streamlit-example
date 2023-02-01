@@ -6,6 +6,7 @@ import streamlit as st
 import xlrd
 import snowflake.snowpark
 from snowflake.snowpark import Session
+from io import StringIO
 
 connection_parameters={
   "account":"ti05946.eu-west-1",
@@ -22,8 +23,10 @@ st.dataframe(df)
 
 input_file=st.file_uploader("Upload the Mapping document")
 if input_file is not None:
+  stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+  data = stringio.read()
   #data=input_file.getvalue()
-  workbook=xlrd.open_workbook(input_file)
+  workbook=xlrd.open_workbook(data)
   sheet=workbook.sheet_by_index(0)
   col_a=sheet.col_values(0,1)
   col_b=sheet.col_values(1,1)
