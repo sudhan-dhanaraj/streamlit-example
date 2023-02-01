@@ -23,7 +23,7 @@ st.dataframe(df)
 
 input_file=st.file_uploader("Upload the Mapping document")
 if input_file is not None:
-  stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+  stringio = StringIO(input_file.getvalue().decode("utf-8"))
   data = stringio.read()
   #data=input_file.getvalue()
   workbook=xlrd.open_workbook(data)
