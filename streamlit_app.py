@@ -3,6 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import xlrd
 import snowflake.snowpark
 from snowflake.snowpark import Session
 
