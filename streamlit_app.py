@@ -1,4 +1,4 @@
-from tempfile import NamedTemporaryFile
+import os
 from collections import namedtuple
 import altair as alt
 import math
