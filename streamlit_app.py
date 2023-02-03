@@ -30,16 +30,16 @@ input_path=st.text_input('Enter the file path')
   #data=input_file.getvalue()
   #with NamedTemporaryFile(dir='.', suffix='.xls') as f:
     #f.write(input_file.getbuffer())
-  workbook=xlrd.open_workbookinput_path)
-  sheet=workbook.sheet_by_index(0)
-  col_a=sheet.col_values(0,1)
-  col_b=sheet.col_values(1,1)
-  col_c=sheet.col_values(2.1)
-  join_cols=[]
-  for a,b,c in zip(col_a,col_b,col_c):
-    if c=='ID':
-      join_cols.append(a)
-  print(join_cols)
+workbook=xlrd.open_workbookinput_path)
+sheet=workbook.sheet_by_index(0)
+col_a=sheet.col_values(0,1)
+col_b=sheet.col_values(1,1)
+col_c=sheet.col_values(2.1)
+join_cols=[]
+for a,b,c in zip(col_a,col_b,col_c):
+  if c=='ID':
+    join_cols.append(a)
+print(join_cols)
     
 
 """
