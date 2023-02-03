@@ -22,24 +22,24 @@ session=Session.builder.configs(connection_parameters).create()
 df=session.table('NAME')
 st.dataframe(df)
 
-input_path=st.text_input('Enter the file path')
-#input_file=st.file_uploader("Upload the Mapping document")
-#if input_file is not None:
+#input_path=st.text_input('Enter the file path')
+input_file=st.file_uploader("Upload the Mapping document")
+if input_file is not None:
   #stringio = StringIO(input_file.getvalue())
   #data = stringio.read()
   #data=input_file.getvalue()
-  #with NamedTemporaryFile(dir='.', suffix='.xls') as f:
-    #f.write(input_file.getbuffer())
-workbook=xlrd.open_workbook(input_path)
-sheet=workbook.sheet_by_index(0)
-col_a=sheet.col_values(0,1)
-col_b=sheet.col_values(1,1)
-col_c=sheet.col_values(2.1)
-join_cols=[]
-for a,b,c in zip(col_a,col_b,col_c):
-  if c=='ID':
-    join_cols.append(a)
-print(join_cols)
+   with open(os.path.join("tempDir",uploadedfile.name),"wb") as f:
+         f.write(uploadedfile.getbuffer())
+  workbook=xlrd.open_workbook(f)
+  sheet=workbook.sheet_by_index(0)
+  col_a=sheet.col_values(0,1)
+  col_b=sheet.col_values(1,1)
+  col_c=sheet.col_values(2.1)
+  join_cols=[]
+  for a,b,c in zip(col_a,col_b,col_c):
+    if c=='ID':
+      join_cols.append(a)
+  print(join_cols)
     
 
 """
