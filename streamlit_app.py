@@ -30,7 +30,7 @@ input_path=st.text_input('Enter the file path')
   #data=input_file.getvalue()
   #with NamedTemporaryFile(dir='.', suffix='.xls') as f:
     #f.write(input_file.getbuffer())
-workbook=xlrd.open_workbookinput_path)
+workbook=xlrd.open_workbook(input_path)
 sheet=workbook.sheet_by_index(0)
 col_a=sheet.col_values(0,1)
 col_b=sheet.col_values(1,1)
