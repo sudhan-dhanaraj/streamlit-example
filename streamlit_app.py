@@ -21,7 +21,7 @@ connection_parameters={
 session=Session.builder.configs(connection_parameters).create()
 print('Connection Success')
 df=session.table('NAME')
-st.dataframe(df)
+
 
 #input_path=st.text_input('Enter the file path')
 input_file=st.file_uploader("Upload the Mapping document")
@@ -39,6 +39,7 @@ if input_file is not None:
     if c=='ID':
       join_cols.append(a)
   print(join_cols)
+  st.dataframe(df)
     
 
 
