@@ -22,14 +22,15 @@ session=Session.builder.configs(connection_parameters).create()
 df=session.table('NAME')
 st.dataframe(df)
 
-input_file=st.file_uploader("Upload the Mapping document")
-if input_file is not None:
+input_path=st.text_input('Enter the file path')
+#input_file=st.file_uploader("Upload the Mapping document")
+#if input_file is not None:
   #stringio = StringIO(input_file.getvalue())
   #data = stringio.read()
   #data=input_file.getvalue()
-  with NamedTemporaryFile(dir='.', suffix='.xls') as f:
-    f.write(input_file.getbuffer())
-  workbook=xlrd.open_workbook(f.name)
+  #with NamedTemporaryFile(dir='.', suffix='.xls') as f:
+    #f.write(input_file.getbuffer())
+  workbook=xlrd.open_workbookinput_path)
   sheet=workbook.sheet_by_index(0)
   col_a=sheet.col_values(0,1)
   col_b=sheet.col_values(1,1)
