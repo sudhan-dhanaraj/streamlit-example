@@ -25,7 +25,8 @@ st.dataframe(df)
 #input_path=st.text_input('Enter the file path')
 input_file=st.file_uploader("Upload the Mapping document")
 if input_file is not None:
-  with open(os.path.join("tempDir",uploadedfile.name),"wb") as f:
+  print(input_file.name)
+  with open(os.path.join("tempDir",input_file.name),"wb") as f:
     f.write(uploadedfile.getbuffer())
   workbook=xlrd.open_workbook(f)
   sheet=workbook.sheet_by_index(0)
