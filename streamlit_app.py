@@ -162,20 +162,31 @@ def df_compare(load_type):
     #session.sql("INSERT INTO COMPARISON_REPORT(table_name,report,generated_on) Select '"+tgt_tblname+"',object_agg('Report',object_construct('Table Summary',object_construct('Source Table Name','"+src_tblname+"','Target Table Name','"+tgt_tblname+"','No of columns in source',"+str(len(df1.columns))+",'No of Columns in Target',"+str(len(df2.columns))+"),'Dataframe Summary',object_construct('No of cols considered for Comparison',"+str(base_col_count)+",'No of Rows in Source',"+str(base_row_count)+",'No of Rows in Target',"+str(compare_row_count)+"),'Row Summary',object_construct('No of Rows in common',"+str(common_row_count)+",'No of Rows in DL_External but not in AA_MART',"+str(d1.count())+",'No of Rows in AA_MART but not in DL_EXTERNAL',"+str(d2.count())+"),'Column Summary',object_construct('Columns with some values compared different',"+str(uneq_cols)+",'Columns withh all compared values equal',"+str(eq_cols)+"),'Mismatched Records Sample',"+str(mismatch_list)+")),current_timestamp()").collect()
   return "Success"
 
-a=st.button('Historical Comparison')
-b=st.button('Incremental Comparison')
-if(a):
+st.title("ODS Data Migration")
+"""Testing Modules"""
+Module_names=['Historical','Incremental']
+res=st.radio('Choose the Test Suite',Module_names)
+if res='Historical':
+  st.write('Historical Data Comparison between DL_EXTERNAL_RZ.TRIDENT_ODS and AA_MART_UAT.AA_ANALYTICS')
+  df_compare('full')
+else:
+  st.write('Incremental Data Comparison between  DL_EXTERNAL_RZ.TRIDENT_ODS and AA_MART_UAT.AA_ANALYTICS')
+  df.compare('delta')
+  
+#a=st.button('Historical Comparison')
+#b=st.button('Incremental Comparison')
+#if(a):
   #src=st.text_input("Source TableName")
   #tgt=st.text_input("Target TableName")
   #if src is not None and tgt is not None:
-  df_compare('full')
+  #df_compare('full')
   #else:
   #  """Enter a Valid table name"""
-elif(b):
+#elif(b):
   #src=st.button("Source TableName")
   #tgt=st.button("Target TableName")
   #if src is not None and tgt is not None:
-  df_compare('delta')
+  #df_compare('delta')
   #else:
   #  """Enter a Valid table name"""
     
