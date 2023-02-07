@@ -165,10 +165,17 @@ def df_compare(src_tblname,tgt_tblname,load_type):
 a=st.button('Historical Comparison')
 b=st.button('Incremental Comparison')
 if(a):
-  src=st.button("Source TableName")
-  tgt=st.button("Target TableName")
-  df_compare(src,tgt,'full')
+  src=st.text_input("Source TableName")
+  tgt=st.text_input("Target TableName")
+  if src is not None and tgt is not None:
+    df_compare(src,tgt,'full')
+   else:
+    """Enter a Valid table name"""
 elif(b):
   src=st.button("Source TableName")
   tgt=st.button("Target TableName")
-  df_compare(src,tgt,'delta')
+  if src is not None and tgt is not None:
+    df_compare(src,tgt,'delta')
+  else:
+    """Enter a Valid table name"""
+    
