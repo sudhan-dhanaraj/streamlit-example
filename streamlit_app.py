@@ -39,6 +39,7 @@ if input_file is not None:
     if c=='ID':
       join_cols.append(a)
   #print(join_cols)
+  s=""
   for i in join_cols:
     s += "- " + i + "\n"
   st.markdown(s)
