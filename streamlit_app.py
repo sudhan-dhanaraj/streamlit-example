@@ -23,11 +23,11 @@ df=session.table('NAME')
 
 
 
-def df_compare(load_type):
+def df_compare(src_tblname,tgt_tblname,load_type):
          
 #Read from excel file and build column_mapping dictionary
-  src_tblname=st.text_input("Enter the fully qualified Source Name")
-  tgt_tblname=st.text_input("Enter the fully qualified Target Name")
+  #src_tblname=st.text_input("Enter the fully qualified Source Name")
+  #tgt_tblname=st.text_input("Enter the fully qualified Target Name")
   input_file=st.file_uploader("Upload the Mapping document")
   if input_file is not None:
     print(input_file.name)
@@ -165,6 +165,10 @@ def df_compare(load_type):
 a=st.button('Historical Comparison')
 b=st.button('Incremental Comparison')
 if(a):
-  df_compare('full')
+  src=st.button("Source TableName")
+  tgt=st.button("Target TableName")
+  df_compare(src,tgt,'full')
 elif(b):
-  df_compare('delta')
+  src=st.button("Source TableName")
+  tgt=st.button("Target TableName")
+  df_compare(src,tgt,'delta')
