@@ -15,6 +15,7 @@ connection_parameters={
   "password":"Sudhan@9596",
   "role":"ACCOUNTADMIN",
   "database":db_name,
+  "schema":'AA_ANALYTICS',
   "warehouse":'COMPUTE_WH'
 }
 
