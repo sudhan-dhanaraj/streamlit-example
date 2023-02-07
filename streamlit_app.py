@@ -26,8 +26,8 @@ df=session.table('NAME')
 def df_compare(load_type):
          
 #Read from excel file and build column_mapping dictionary
-  src_tblname=st.text_input("Enter the fully qualified Source Name")
-  tgt_tblname=st.text_input("Enter the fully qualified Target Name")
+  src_tblname='DBO_TBL_D_AGENT_DBA'
+  tgt_tblname='DIM_AGENT_DBA'
   input_file=st.file_uploader("Upload the Mapping document")
   if input_file is not None and src_tblname is not None and tgt_tblname is not None:
     print(input_file.name)
