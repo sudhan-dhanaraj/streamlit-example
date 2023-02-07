@@ -169,7 +169,7 @@ if(a):
   tgt=st.text_input("Target TableName")
   if src is not None and tgt is not None:
     df_compare(src,tgt,'full')
-   else:
+  else:
     """Enter a Valid table name"""
 elif(b):
   src=st.button("Source TableName")
