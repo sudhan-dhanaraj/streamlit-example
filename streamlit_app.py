@@ -38,8 +38,10 @@ if input_file is not None:
   for a,b,c in zip(col_a,col_b,col_c):
     if c=='ID':
       join_cols.append(a)
-  print(join_cols)
-  st.dataframe(df)
+  #print(join_cols)
+  for i in join_cols:
+    st.markdown("- " + I)
+  #st.dataframe(df)
     
 
 
