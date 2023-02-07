@@ -23,7 +23,7 @@ df=session.table('NAME')
 
 
 
-def df_compare(src_tblname,tgt_tblname,load_type):
+def df_compare(load_type):
          
 #Read from excel file and build column_mapping dictionary
   src_tblname=st.text_input("Enter the fully qualified Source Name")
