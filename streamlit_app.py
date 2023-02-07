@@ -40,7 +40,8 @@ if input_file is not None:
       join_cols.append(a)
   #print(join_cols)
   for i in join_cols:
-    st.markdown("- " + I)
+    s += "- " + i + "\n"
+  st.markdown(s)
   #st.dataframe(df)
     
 
