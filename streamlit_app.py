@@ -7,6 +7,8 @@ import streamlit as st
 import xlrd
 import snowflake.snowpark
 from snowflake.snowpark import Session
+from snowflake.snowpark.functions import col,sum
+from snowflake.snowpark.types import DecimalType
 from io import StringIO
 db_name='AA_MART_QA'
 connection_parameters={
