@@ -166,7 +166,7 @@ st.title("ODS Data Migration")
 """Testing Modules"""
 Module_names=['Historical','Incremental']
 res=st.radio('Choose the Test Suite',Module_names)
-if res='Historical':
+if res=='Historical':
   st.write('Historical Data Comparison between DL_EXTERNAL_RZ.TRIDENT_ODS and AA_MART_UAT.AA_ANALYTICS')
   df_compare('full')
 else:
