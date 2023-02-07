@@ -15,6 +15,7 @@ connection_parameters={
   "password":"Sudhan@9596",
   "role":"ACCOUNTADMIN",
   "database":db_name,
+  "warehouse":'COMPUTE_WH'
 }
 
 session=Session.builder.configs(connection_parameters).create()
