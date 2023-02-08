@@ -180,7 +180,7 @@ if res=='Historical':
   df_compare('full')
 else:
   st.write('Incremental Data Comparison between  DL_EXTERNAL_RZ.TRIDENT_ODS and AA_MART_UAT.AA_ANALYTICS')
-  df.compare('delta')
+  df_compare('delta')
   
 #a=st.button('Historical Comparison')
 #b=st.button('Incremental Comparison')
