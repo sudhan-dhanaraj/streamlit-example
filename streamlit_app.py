@@ -81,8 +81,8 @@ def df_compare(load_type):
     df1_name='Exteranl_RZ'
     df2_name='AA_MART'
     if(load_type=='delta'):
-        session.sql("SET DTMPREVIOUS_EXTRACT_DATE=(SELECT PREVIOUS_EXTRACT_DATE FROM (select * from AA_STAGING.STG_DATE_CONTROL where ETL_STATUS_CODE=0 and ETL_STATUS_DESCRIPTION='SUCCEEDED' ORDER BY 7 DESC) LIMIT 1)").collect()
-        session.sql("SET DTMCURRENT_EXTRACT_DATE=(SELECT CURRENT_EXTRACT_DATE FROM (select * from AA_STAGING.STG_DATE_CONTROL where ETL_STATUS_CODE=0 and ETL_STATUS_DESCRIPTION='SUCCEEDED' ORDER BY 7 DESC) LIMIT 1)").collect()
+        session.sql("SET DTMPREVIOUS_EXTRACT_DATE='"+start_dt+"'").collect()
+        session.sql("SET DTMCURRENT_EXTRACT_DATE='"+end_dt+"'").collect()
         base_df=session.sql("SELECT "+src_col+" from "+src_qualified_name+"  where CAST(UPDATE_DATE AS DATE)>$DTMPREVIOUS_EXTRACT_DATE AND CAST(UPDATE_DATE AS DATE)<=$DTMCURRENT_EXTRACT_DATE")
         compare_df=session.sql("SELECT "+tgt_col+" from "+tgt_qualified_name+"  where CAST(UPDATE_DATE AS DATE)>$DTMPREVIOUS_EXTRACT_DATE AND CAST(UPDATE_DATE AS DATE)<=$DTMCURRENT_EXTRACT_DATE")
     else:
