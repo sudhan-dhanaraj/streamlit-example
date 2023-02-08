@@ -30,16 +30,17 @@ print('Connection Success')
 def df_compare(load_type):
          
 #Read from excel file and build column_mapping dictionary
-  src_tblname=st.text_input('Enter the source table name')
-  tgt_tblname=st.text_input('Enter the target table name')
+  src_tblname=st.sidebar.text_input('Enter the source table name')
+  tgt_tblname=st.sidebar.text_input('Enter the target table name')
   if(load_type=='delta'):
-    start_dt=st.date_input('Start Date')
-    end_dt=st.date_input('End Date')
+    start_dt=st.sidebar.date_input('Start Date')
+    end_dt=st.sidebar.date_input('End Date')
                      
   #src_tblname='DBO_TBL_D_AGENT_DBA'
   #tgt_tblname='DIM_AGENT_DBA'
-  input_file=st.file_uploader("Upload the Mapping document")
-  if input_file is not None:
+  input_file=st.sidebar.file_uploader("Upload the Mapping document")
+  submit=st.sidebar.button('Submit')
+  if submit:
     print(input_file.name)
   #session.file.put(file_path, "@PROC_STAGE/",auto_compress=False)
   #session.file.get(file_path,"tmp/")
