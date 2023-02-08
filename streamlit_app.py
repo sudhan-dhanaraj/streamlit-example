@@ -177,7 +177,7 @@ def df_compare(load_type):
 st.title("ODS Data Migration")
 """Testing Modules"""
 Module_names=['Select an Option','Historical','Incremental']
-res=st.selectbox('Choose the Test Suite',Module_names)
+res=st.sidebar.selectbox('Choose the Test Suite',Module_names)
 #res=st.radio('Choose the Test Suite',Module_names)
 if res=='Historical':
   st.write('Historical Data Comparison between DL_EXTERNAL_RZ.TRIDENT_ODS and AA_MART_UAT.AA_ANALYTICS')
