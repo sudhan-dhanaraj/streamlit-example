@@ -32,6 +32,10 @@ def df_compare(load_type):
 #Read from excel file and build column_mapping dictionary
   src_tblname=st.text_input('Enter the source table name')
   tgt_tblname=st.text_input('Enter the target table name')
+  if(load_type=='delta'):
+    start_dt=st.date_input('Start Date')
+    end_dt=st.date_input('End Date')
+                     
   #src_tblname='DBO_TBL_D_AGENT_DBA'
   #tgt_tblname='DIM_AGENT_DBA'
   input_file=st.file_uploader("Upload the Mapping document")
